@@ -33,3 +33,16 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+
+
+function menuMakeItSo(menuItems){
+  const menuMake=document.createElement('div');
+  const listMake=document.createElement('ul')
+  for(i=0;i<menuItems.length;i++){
+    document.createElement('li');
+  }
+  return menuMake
+}
+
+let menuGetItStarted=document.getElementsByClassName('.menu-button');
+menuGetItStarted.append

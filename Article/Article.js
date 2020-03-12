@@ -112,3 +112,57 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+data.push({
+  title:'Here is a new title',
+  date:'today',
+  firstParagraph:'p1',
+  secondParagraph:'p2',
+  thirdParagraph:'p3'
+}
+);
+
+
+function makeItSo(data){
+  const articleMake=
+    document.createElement('div');
+  const titleMake=
+    document.createElement('h2');
+  const dateMake=
+    document.createElement('p');
+  const pMake1=
+    document.createElement('p');
+  const pMake2=
+    document.createElement('p');
+  const pMake3=
+    document.createElement('p');
+  const spanMake=
+    document.createElement('span');
+  
+  articleMake.append(titleMake);
+  articleMake.append(dateMake);
+  articleMake.append(pMake1);
+  articleMake.append(pMake2);
+  articleMake.append(pMake3);
+  articleMake.append(spanMake);
+
+  articleMake.classList.add('article');
+  dateMake.classList.add('date');
+  spanMake.classList.add('expandButton');
+
+  titleMake.textContent=data.title;
+  dateMake.textContent=data.date;
+  pMake1.textContent=data.firstParagraph;
+  pMake2.textContent=data.secondParagraph;
+  pMake3.textContent=data.thirdParagraph;
+  spanMake.textContent='expand';
+  spanMake.addEventListener('click',(event)=>{
+    articleMake.classList.toggle('article-open');
+})
+
+return articleMake;
+}
+
+let getItStarted=document.querySelector('.articles');
+data.map(function(item){
+  getItStarted.append(makeItSo(item));
+})
