@@ -37,12 +37,23 @@ let menuItems = [
 
 function menuMakeItSo(menuItems){
   const menuMake=document.createElement('div');
-  const listMake=document.createElement('ul')
+  menuMake.classList.add('menu');
+  const listMake=document.createElement('ul');
   for(i=0;i<menuItems.length;i++){
-    document.createElement('li');
+    let itemMake=
+      document.createElement('li');
+    itemMake.textContent=menuItems[i];
+    listMake.appendChild(itemMake);
   }
+  menuMake.appendChild(listMake);
+  const eventMake=document.querySelector('.menu-button');
+ eventMake.addEventListener('click',function(){
+    console.log('test');
+    menuMake.classList.toggle('menu--open');
+  })
+
   return menuMake
 }
 
-let menuGetItStarted=document.getElementsByClassName('.menu-button');
-menuGetItStarted.append
+document.querySelector('.header').append(menuMakeItSo(menuItems));
+
